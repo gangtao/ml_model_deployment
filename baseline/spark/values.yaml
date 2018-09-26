@@ -1,0 +1,7 @@
+Master:
+  Image: "naughtytao/spark"
+  ImageTag: "2.3"
+
+Worker:
+  Image: "naughtytao/spark"
+  ImageTag: "2.3"
