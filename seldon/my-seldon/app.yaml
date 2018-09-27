@@ -1,0 +1,23 @@
+apiVersion: 0.2.0
+environments:
+  default:
+    destination:
+      namespace: mdt
+      server: https://api-gtao-k8s-local-p2gqbe-1224168928.us-west-2.elb.amazonaws.com
+    k8sVersion: v1.9.6
+    path: default
+kind: ksonnet.io/app
+libraries:
+  seldon-core:
+    name: seldon-core
+    registry: seldon-core
+    version: ""
+name: my-seldon
+registries:
+  incubator:
+    protocol: github
+    uri: github.com/ksonnet/parts/tree/master/incubator
+  seldon-core:
+    protocol: fs
+    uri: /Users/gtao/Code/Projects/Personal/seldon-core/seldon-core
+version: 0.0.1
