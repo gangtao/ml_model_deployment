@@ -20,8 +20,6 @@ RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
                        oob_score=False, random_state=0, verbose=0, warm_start=False)
 
 print(clf.feature_importances_)
-print(clf.predict(X_test))
-print(y_test)
 
 print(classification_report(y_test, clf.predict(
     X_test), target_names=data["target_names"]))

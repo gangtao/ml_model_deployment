@@ -1,4 +1,4 @@
-
+%pyspark
 from pyspark.ml import Pipeline
 from pyspark.ml.classification import RandomForestClassifier
 from pyspark.ml.feature import IndexToString, StringIndexer, VectorIndexer
@@ -21,7 +21,6 @@ data = data.withColumn("sepal_width", data["sepal_width"].cast(DoubleType()))
 data = data.withColumn("petal_width", data["petal_width"].cast(DoubleType()))
 data = data.withColumn("petal_length", data["petal_length"].cast(DoubleType()))
 
-
 #data.show()
 data.printSchema()
 
@@ -35,15 +34,13 @@ output = assembler.transform(data)
 # Fit on whole dataset to include all labels in index.
 labelIndexer = StringIndexer(inputCol="species", outputCol="indexedLabel").fit(output)
 
-
 # Automatically identify categorical features, and index them.
 # Set maxCategories so features with > 4 distinct values are treated as continuous.
 featureIndexer =\
     VectorIndexer(inputCol="features", outputCol="indexedFeatures", maxCategories=4).fit(output)
 
-
 # Split the data into training and test sets (30% held out for testing)
-(trainingData, testData) = output.randomSplit([0.7, 0.3])
+(trainingData, testData) = data.randomSplit([0.7, 0.3])
 
 # Train a RandomForest model.
 rf = RandomForestClassifier(labelCol="indexedLabel", featuresCol="indexedFeatures", numTrees=10)
@@ -53,7 +50,7 @@ labelConverter = IndexToString(inputCol="prediction", outputCol="predictedLabel"
                                labels=labelIndexer.labels)
 
 # Chain indexers and forest in a Pipeline
-pipeline = Pipeline(stages=[labelIndexer, featureIndexer, rf, labelConverter])
+pipeline = Pipeline(stages=[assembler, labelIndexer, featureIndexer, rf, labelConverter])
 
 # Train model.  This also runs the indexers.
 model = pipeline.fit(trainingData)
@@ -70,5 +67,8 @@ evaluator = MulticlassClassificationEvaluator(
 accuracy = evaluator.evaluate(predictions)
 print("Test Error = %g" % (1.0 - accuracy))
 
-rfModel = model.stages[2]
+rfModel = model.stages[3]
 print(rfModel)  # summary only
+
+pipeline.write().overwrite().save("classification-pipeline")
+model.write().overwrite().save("classification-model")

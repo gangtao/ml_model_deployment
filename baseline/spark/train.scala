@@ -15,6 +15,7 @@ val data = spark.read.format("csv").option("header", "true").load(SparkFiles.get
 //data.printSchema()
 
 // Transform, convert string coloumn to number
+// this transform is not part of the pipeline
 val featureDf = data.select(data("sepal_length").cast(DoubleType).as("sepal_length"),
                             data("sepal_width").cast(DoubleType).as("sepal_width"),
                             data("petal_width").cast(DoubleType).as("petal_width"),
@@ -41,7 +42,7 @@ val featureIndexer = new VectorIndexer()
   .fit(output)
   
 // Split the data into training and test sets (30% held out for testing).
-val Array(trainingData, testData) = output.randomSplit(Array(0.7, 0.3))
+val Array(trainingData, testData) = featureDf.randomSplit(Array(0.7, 0.3))
 
 // Train a RandomForest model.
 val rf = new RandomForestClassifier()
@@ -57,15 +58,13 @@ val labelConverter = new IndexToString()
 
 // Chain indexers and forest in a Pipeline.
 val pipeline = new Pipeline()
-  .setStages(Array(labelIndexer, featureIndexer, rf, labelConverter))
+  .setStages(Array(assembler, labelIndexer, featureIndexer, rf, labelConverter))
 
 // Train model. This also runs the indexers.
 val model = pipeline.fit(trainingData)
 
-
 // Make predictions.
 val predictions = model.transform(testData)
-
 
 // Select example rows to display.
 predictions.select("predictedLabel", "species", "features").show(5)
@@ -78,6 +77,8 @@ val evaluator = new MulticlassClassificationEvaluator()
 val accuracy = evaluator.evaluate(predictions)
 println("Test Error = " + (1.0 - accuracy))
 
-val rfModel = model.stages(2).asInstanceOf[RandomForestClassificationModel]
+val rfModel = model.stages(3).asInstanceOf[RandomForestClassificationModel]
 println("Learned classification forest model:\n" + rfModel.toDebugString)
 
+pipeline.write.overwrite.save("classification-pipeline")
+model.write.overwrite.save("classification-model")
