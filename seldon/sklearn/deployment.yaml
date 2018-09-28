@@ -1,0 +1,36 @@
+---
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  labels:
+    app: seldon
+  name: seldon-deployment-sklearn
+  namespace: mdt
+spec:
+  annotations:
+    project_name: seldon sklearn
+    deployment_version: '0.1'
+  name: sklearn-deployment
+  oauth_key: oauth-key
+  oauth_secret: oauth-secret
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: naughtytao/sklearn-model:0.1
+          imagePullPolicy: IfNotPresent
+          name: sklearn-classifier
+          resources:
+            requests:
+              memory: 1Mi
+        terminationGracePeriodSeconds: 20
+    graph:
+      children: []
+      name: sklearn-classifier
+      endpoint:
+        type: REST
+      type: MODEL
+    name: sklearn-predictor
+    replicas: 1
+    annotations:
+      predictor_version: '0.1'

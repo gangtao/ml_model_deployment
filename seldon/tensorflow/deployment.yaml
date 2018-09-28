@@ -1,0 +1,36 @@
+---
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  labels:
+    app: seldon
+  name: seldon-deployment-tf
+  namespace: mdt
+spec:
+  annotations:
+    project_name: seldon tf
+    deployment_version: '0.1'
+  name: tf-deployment
+  oauth_key: oauth-key
+  oauth_secret: oauth-secret
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: naughtytao/tf-model:0.1
+          imagePullPolicy: IfNotPresent
+          name: tf-classifier
+          resources:
+            requests:
+              memory: 1Mi
+        terminationGracePeriodSeconds: 20
+    graph:
+      children: []
+      name: tf-classifier
+      endpoint:
+        type: REST
+      type: MODEL
+    name: tf-predictor
+    replicas: 1
+    annotations:
+      predictor_version: '0.1'
