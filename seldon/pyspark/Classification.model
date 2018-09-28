@@ -1,0 +1,231 @@
+RandomForestClassificationModel (uid=rfc_225ef4968bf9) with 10 trees
+  Tree 0 (weight 1.0):
+    If (feature 3 <= 1.9)
+     Predict: 1.0
+    Else (feature 3 > 1.9)
+     If (feature 3 <= 4.7)
+      Predict: 2.0
+     Else (feature 3 > 4.7)
+      If (feature 3 <= 5.1)
+       If (feature 1 <= 2.5)
+        Predict: 0.0
+       Else (feature 1 > 2.5)
+        If (feature 1 <= 2.7)
+         Predict: 2.0
+        Else (feature 1 > 2.7)
+         Predict: 0.0
+      Else (feature 3 > 5.1)
+       Predict: 0.0
+  Tree 1 (weight 1.0):
+    If (feature 3 <= 1.9)
+     Predict: 1.0
+    Else (feature 3 > 1.9)
+     If (feature 3 <= 4.9)
+      If (feature 2 <= 1.6)
+       Predict: 2.0
+      Else (feature 2 > 1.6)
+       If (feature 0 <= 4.9)
+        Predict: 0.0
+       Else (feature 0 > 4.9)
+        If (feature 0 <= 5.9)
+         Predict: 2.0
+        Else (feature 0 > 5.9)
+         Predict: 0.0
+     Else (feature 3 > 4.9)
+      If (feature 1 <= 3.0)
+       If (feature 3 <= 5.1)
+        If (feature 2 <= 1.7)
+         Predict: 0.0
+        Else (feature 2 > 1.7)
+         Predict: 0.0
+       Else (feature 3 > 5.1)
+        Predict: 0.0
+      Else (feature 1 > 3.0)
+       Predict: 0.0
+  Tree 2 (weight 1.0):
+    If (feature 3 <= 1.9)
+     Predict: 1.0
+    Else (feature 3 > 1.9)
+     If (feature 3 <= 5.0)
+      If (feature 2 <= 1.6)
+       Predict: 2.0
+      Else (feature 2 > 1.6)
+       If (feature 1 <= 2.5)
+        Predict: 0.0
+       Else (feature 1 > 2.5)
+        Predict: 2.0
+     Else (feature 3 > 5.0)
+      If (feature 0 <= 6.0)
+       If (feature 1 <= 2.7)
+        If (feature 0 <= 5.8)
+         Predict: 0.0
+        Else (feature 0 > 5.8)
+         Predict: 2.0
+       Else (feature 1 > 2.7)
+        Predict: 0.0
+      Else (feature 0 > 6.0)
+       Predict: 0.0
+  Tree 3 (weight 1.0):
+    If (feature 3 <= 1.9)
+     Predict: 1.0
+    Else (feature 3 > 1.9)
+     If (feature 3 <= 4.9)
+      If (feature 2 <= 1.5)
+       Predict: 2.0
+      Else (feature 2 > 1.5)
+       If (feature 2 <= 1.7)
+        Predict: 0.0
+       Else (feature 2 > 1.7)
+        Predict: 2.0
+     Else (feature 3 > 4.9)
+      If (feature 3 <= 5.1)
+       If (feature 0 <= 6.5)
+        If (feature 0 <= 5.9)
+         Predict: 0.0
+        Else (feature 0 > 5.9)
+         Predict: 0.0
+       Else (feature 0 > 6.5)
+        Predict: 2.0
+      Else (feature 3 > 5.1)
+       Predict: 0.0
+  Tree 4 (weight 1.0):
+    If (feature 2 <= 0.5)
+     Predict: 1.0
+    Else (feature 2 > 0.5)
+     If (feature 2 <= 1.5)
+      If (feature 2 <= 1.4)
+       Predict: 2.0
+      Else (feature 2 > 1.4)
+       If (feature 3 <= 4.9)
+        Predict: 2.0
+       Else (feature 3 > 4.9)
+        Predict: 0.0
+     Else (feature 2 > 1.5)
+      If (feature 2 <= 1.8)
+       If (feature 3 <= 5.0)
+        If (feature 0 <= 4.9)
+         Predict: 0.0
+        Else (feature 0 > 4.9)
+         Predict: 2.0
+       Else (feature 3 > 5.0)
+        Predict: 0.0
+      Else (feature 2 > 1.8)
+       Predict: 0.0
+  Tree 5 (weight 1.0):
+    If (feature 2 <= 0.5)
+     Predict: 1.0
+    Else (feature 2 > 0.5)
+     If (feature 2 <= 1.6)
+      If (feature 2 <= 1.3)
+       Predict: 2.0
+      Else (feature 2 > 1.3)
+       If (feature 3 <= 4.9)
+        Predict: 2.0
+       Else (feature 3 > 4.9)
+        Predict: 0.0
+     Else (feature 2 > 1.6)
+      If (feature 3 <= 4.8)
+       If (feature 2 <= 1.7)
+        Predict: 0.0
+       Else (feature 2 > 1.7)
+        Predict: 2.0
+      Else (feature 3 > 4.8)
+       Predict: 0.0
+  Tree 6 (weight 1.0):
+    If (feature 3 <= 1.9)
+     Predict: 1.0
+    Else (feature 3 > 1.9)
+     If (feature 3 <= 4.9)
+      If (feature 2 <= 1.6)
+       Predict: 2.0
+      Else (feature 2 > 1.6)
+       If (feature 1 <= 2.8)
+        Predict: 0.0
+       Else (feature 1 > 2.8)
+        Predict: 2.0
+     Else (feature 3 > 4.9)
+      If (feature 1 <= 2.7)
+       If (feature 2 <= 1.6)
+        If (feature 3 <= 5.0)
+         Predict: 0.0
+        Else (feature 3 > 5.0)
+         Predict: 2.0
+       Else (feature 2 > 1.6)
+        Predict: 0.0
+      Else (feature 1 > 2.7)
+       Predict: 0.0
+  Tree 7 (weight 1.0):
+    If (feature 0 <= 5.4)
+     If (feature 2 <= 0.5)
+      Predict: 1.0
+     Else (feature 2 > 0.5)
+      Predict: 2.0
+    Else (feature 0 > 5.4)
+     If (feature 2 <= 1.7)
+      If (feature 3 <= 1.5)
+       Predict: 1.0
+      Else (feature 3 > 1.5)
+       If (feature 0 <= 6.9)
+        If (feature 3 <= 5.0)
+         Predict: 2.0
+        Else (feature 3 > 5.0)
+         Predict: 0.0
+       Else (feature 0 > 6.9)
+        Predict: 0.0
+     Else (feature 2 > 1.7)
+      If (feature 0 <= 5.9)
+       If (feature 2 <= 1.8)
+        Predict: 2.0
+       Else (feature 2 > 1.8)
+        Predict: 0.0
+      Else (feature 0 > 5.9)
+       Predict: 0.0
+  Tree 8 (weight 1.0):
+    If (feature 3 <= 1.7)
+     Predict: 1.0
+    Else (feature 3 > 1.7)
+     If (feature 3 <= 5.1)
+      If (feature 2 <= 1.6)
+       If (feature 2 <= 1.4)
+        Predict: 2.0
+       Else (feature 2 > 1.4)
+        If (feature 1 <= 2.2)
+         Predict: 0.0
+        Else (feature 1 > 2.2)
+         Predict: 2.0
+      Else (feature 2 > 1.6)
+       If (feature 1 <= 2.5)
+        Predict: 0.0
+       Else (feature 1 > 2.5)
+        If (feature 3 <= 5.0)
+         Predict: 2.0
+        Else (feature 3 > 5.0)
+         Predict: 0.0
+     Else (feature 3 > 5.1)
+      Predict: 0.0
+  Tree 9 (weight 1.0):
+    If (feature 2 <= 0.5)
+     Predict: 1.0
+    Else (feature 2 > 0.5)
+     If (feature 0 <= 6.1)
+      If (feature 3 <= 4.8)
+       If (feature 0 <= 4.9)
+        If (feature 2 <= 1.0)
+         Predict: 2.0
+        Else (feature 2 > 1.0)
+         Predict: 0.0
+       Else (feature 0 > 4.9)
+        Predict: 2.0
+      Else (feature 3 > 4.8)
+       Predict: 0.0
+     Else (feature 0 > 6.1)
+      If (feature 3 <= 4.9)
+       If (feature 1 <= 2.8)
+        If (feature 0 <= 6.2)
+         Predict: 0.0
+        Else (feature 0 > 6.2)
+         Predict: 2.0
+       Else (feature 1 > 2.8)
+        Predict: 2.0
+      Else (feature 3 > 4.9)
+       Predict: 0.0

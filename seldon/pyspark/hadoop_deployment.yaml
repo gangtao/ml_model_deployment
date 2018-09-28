@@ -1,0 +1,32 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "hadoop-nn",
+    "namespace": "hadoop"
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "dfs",
+        "protocol": "TCP",
+        "port": 9000
+      },
+      {
+        "name": "webhdfs",
+        "protocol": "TCP",
+        "port": 50070
+      }
+    ],
+    "selector": {
+      "app": "hadoop",
+      "component": "hdfs-nn",
+      "release": "hadoop"
+    },
+    "type": "LoadBalancer",
+    "sessionAffinity": "None"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}
