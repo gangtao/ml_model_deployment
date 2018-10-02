@@ -10,6 +10,8 @@ MODEL_NAME = 'classification.pkl'
 PREDICT_NAME = 'clipper-sklearn-predict'
 VERSION = 16
 
+REGISTRY = '658391232643.dkr.ecr.us-west-2.amazonaws.com'
+
 clf = joblib.load(MODEL_NAME)
 
 
@@ -38,11 +40,11 @@ clipper_conn.connect()
 
 
 python_deployer.deploy_python_closure(clipper_conn,
-                                      name = PREDICT_NAME,
-                                      version = VERSION,
-                                      input_type = "doubles",
-                                      func = predict_wrapper,
-                                      registry = '658391232643.dkr.ecr.us-west-2.amazonaws.com',
-                                      pkgs_to_install = ['sklearn'])
+                                      name=PREDICT_NAME,
+                                      version=VERSION,
+                                      input_type="doubles",
+                                      func=predict_wrapper,
+                                      registry=REGISTRY,
+                                      pkgs_to_install=['sklearn'])
 
 # clipper_conn.link_model_to_app(app_name=APP_NAME, model_name=PREDICT_NAME)
