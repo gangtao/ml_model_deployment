@@ -1,0 +1,4 @@
+artifact_location: /Users/gtao/Code/Projects/Personal/ml_model_deployment/mlfow/sklearn/mlruns/0
+experiment_id: 0
+lifecycle_stage: active
+name: Default

@@ -1,0 +1,14 @@
+artifact_uri: /Users/gtao/Code/Projects/Personal/ml_model_deployment/mlfow/sklearn/mlruns/0/44ae85c084904b4ea5bad5aa42c9ce05/artifacts
+end_time: 1538523530700
+entry_point_name: ''
+experiment_id: 0
+lifecycle_stage: active
+name: ''
+run_uuid: 44ae85c084904b4ea5bad5aa42c9ce05
+source_name: train.py
+source_type: 4
+source_version: f46ae5ce104c8ebd9c81f63b9e9ad51dff388d58
+start_time: 1538523530680
+status: 3
+tags: []
+user_id: gtao
