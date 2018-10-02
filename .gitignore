@@ -1,2 +1,14 @@
 .DS_Store
-.ipynb_checkpoints/*
+baseline/spark/hadoop_service.yaml
+baseline/spark/spark_service.yaml
+clipper/.ipynb_checkpoints/ClipperBasic-checkpoint.ipynb
+clipper/.ipynb_checkpoints/ClipperPyspark-checkpoint.ipynb
+clipper/.ipynb_checkpoints/ClipperSklearn-checkpoint.ipynb
+clipper/.ipynb_checkpoints/ClipperTensorflow-checkpoint.ipynb
+clipper/checkpoint
+clipper/classification.pkl
+clipper/model.ckpt.data-00000-of-00001
+clipper/model.ckpt.index
+clipper/model.ckpt.meta
+seldon/.ipynb_checkpoints/
+clipper/.ipynb_checkpoints/
