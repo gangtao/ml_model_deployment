@@ -1,0 +1,57 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  labels:
+    app: seldon
+  name: seldon-deployment-abtest
+  namespace: mdt
+spec:
+  name: deployment-abtest
+  oauth_key: oauth-key
+  oauth_secret: oauth-secret
+  predictors:
+  - componentSpecs:
+    - spec:
+        containers:
+        - image: naughtytao/sklearn-model:0.1
+          imagePullPolicy: IfNotPresent
+          name: classifier-sklearn
+          resources:
+            requests:
+              memory: 1Mi
+        terminationGracePeriodSeconds: 20
+    - metadata:
+        labels:
+          version: v2
+      spec:
+        containers:
+        - image: naughtytao/tf-model:0.1
+          imagePullPolicy: IfNotPresent
+          name: classifier-tf
+          resources:
+            requests:
+              memory: 1Mi
+        terminationGracePeriodSeconds: 20
+    name: abtest
+    replicas: 1
+    annotations:
+      predictor_version: v1
+    graph:
+      name: random-ab-test
+      endpoint: {}
+      implementation: RANDOM_ABTEST
+      parameters:
+      - name: ratioA
+        value: '0.5'
+        type: FLOAT
+      children:
+      - name: classifier-sklearn
+        endpoint:
+          type: REST
+        type: MODEL
+        children: []
+      - name: classifier-tf
+        endpoint:
+          type: REST
+        type: MODEL
+        children: []

@@ -17,12 +17,12 @@ spec:
   - componentSpecs:
     - spec:
         containers:
-        - image: naughtytao/pyspark-model-wrapper:0.11
+        - image: naughtytao/pyspark-model-wrapper:0.19
           imagePullPolicy: IfNotPresent
           name: pyspark-classifier
           resources:
             requests:
-              memory: 32Mi
+              memory: 2048Mi
         terminationGracePeriodSeconds: 20
     graph:
       children: []

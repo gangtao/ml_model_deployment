@@ -1,5 +1,5 @@
 BIN_NAME ?= pyspark-model
-VERSION ?= 0.11
+VERSION ?= 0.19
 IMAGE_NAME ?= $(BIN_NAME):$(VERSION)
 DOCKER_ID_USER ?= naughtytao
 
