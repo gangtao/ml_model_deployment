@@ -1,7 +1,7 @@
 Master:
   Image: "naughtytao/spark"
-  ImageTag: "2.3"
+  ImageTag: "2.3.1-glibc"
 
 Worker:
   Image: "naughtytao/spark"
-  ImageTag: "2.3"
+  ImageTag: "2.3.1-glibc"

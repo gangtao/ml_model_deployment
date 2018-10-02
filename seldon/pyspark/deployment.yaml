@@ -9,7 +9,7 @@ metadata:
 spec:
   annotations:
     project_name: seldon tf
-    deployment_version: '0.5'
+    deployment_version: '0.10'
   name: pyspark-deployment
   oauth_key: oauth-key
   oauth_secret: oauth-secret
@@ -17,12 +17,12 @@ spec:
   - componentSpecs:
     - spec:
         containers:
-        - image: naughtytao/pyspark-model-wrapper:0.5
+        - image: naughtytao/pyspark-model-wrapper:0.11
           imagePullPolicy: IfNotPresent
           name: pyspark-classifier
           resources:
             requests:
-              memory: 1Mi
+              memory: 32Mi
         terminationGracePeriodSeconds: 20
     graph:
       children: []
@@ -33,4 +33,4 @@ spec:
     name: pyspark-predictor
     replicas: 1
     annotations:
-      predictor_version: '0.5'
+      predictor_version: '0.10'

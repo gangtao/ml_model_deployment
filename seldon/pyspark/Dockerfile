@@ -1,4 +1,4 @@
-FROM pyspark-model:0.5
+FROM pyspark-model:0.11
 MAINTAINER gang.tao@outlook.com
 
 RUN apt-get install -y --no-install-recommends software-properties-common

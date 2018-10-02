@@ -1,6 +1,7 @@
 %pyspark
 from pyspark.ml import Pipeline
 from pyspark.ml import PipelineModel
+from pyspark.sql.types import DoubleType
 
 from pyspark import SparkFiles
 
