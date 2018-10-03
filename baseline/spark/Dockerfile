@@ -1,4 +1,6 @@
 FROM openjdk:8-alpine
+MAINTAINER gang.tao@outlook.com
+
 # Default Args
 ARG APACHE_MIRROR_SERVER=http://www-us.apache.org
 ARG SPARK_VERSION=2.3.1
@@ -8,16 +10,13 @@ RUN apk update && \
     apk add bash curl git python3 wget vim openssl ca-certificates snappy && \
     mkdir -p /etc/BUILDS/ && \
     printf "Build of nimmis/alpine-glibc:3.5, date: %s\n"  `date -u +"%Y-%m-%dT%H:%M:%SZ"` > /etc/BUILDS/alpine-glibc && \
-
     # download packages for glibc, see https://github.com/sgerrand/alpine-pkg-glibc for more info
     curl -L -o glibc-${GLIBC_VERSION}.apk \
       "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk" && \
     curl -L -o glibc-bin-${GLIBC_VERSION}.apk \
       "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk" && \
-
-    # install them
+    # install glibc to support snappy
     apk add --allow-untrusted glibc-${GLIBC_VERSION}.apk glibc-bin-${GLIBC_VERSION}.apk && \
-
     rm -rf /var/cache/apk/*
 
 

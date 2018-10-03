@@ -1,5 +1,5 @@
 FROM continuumio/anaconda
-MAINTAINER gtao@splunk.com
+MAINTAINER gang.tao@outlook.com
 
 RUN pip install boto3 clipper_admin cloudpickle==0.5.3 
 RUN /opt/conda/bin/conda install jupyter -y --quiet
