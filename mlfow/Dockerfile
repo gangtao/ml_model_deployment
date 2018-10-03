@@ -1,8 +1,7 @@
-FROM python:2.7-alpine3.8
+FROM continuumio/miniconda
 
 MAINTAINER gang.tao@outlook.com
 
-RUN apk add build-base
 RUN mkdir /mlflow/
 RUN pip install mlflow
 

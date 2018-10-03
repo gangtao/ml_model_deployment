@@ -1,13 +1,9 @@
-FROM python:2.7-alpine3.8
+FROM naughtytao/mlflow:0.1
 
 MAINTAINER gang.tao@outlook.com
 
-RUN apk add build-base
-RUN mkdir /mlflow/
-RUN pip install mlflow
+COPY ./mlruns/0/44ae85c084904b4ea5bad5aa42c9ce05/artifacts/model /model
 
 EXPOSE 5000
 
-CMD mlflow server \
-    --file-store /mlflow \
-    --host 0.0.0.0
+CMD ["mlflow","sklearn","serve","-m","/model", "--host", "0.0.0.0"]
