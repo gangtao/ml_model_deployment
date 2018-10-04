@@ -87,4 +87,4 @@ print(X)
 print(Y)
 
 # save the model to a check point file
-save_path = saver.save(sess, "/tmp/model.ckpt")
+save_path = saver.save(sess, "/model.ckpt")
