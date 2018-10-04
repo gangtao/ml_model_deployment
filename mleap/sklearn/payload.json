@@ -1,0 +1,36 @@
+{
+    "schema": {
+        "fields": [{
+            "name": "a",
+            "type": {
+                "type": "basic",
+                "base": "double",
+                "isNullable": false
+            }
+        }, {
+            "name": "b",
+            "type": {
+                "type": "basic",
+                "base": "double",
+                "isNullable": false
+            }
+        }, {
+            "name": "c",
+            "type": {
+                "type": "basic",
+                "base": "double",
+                "isNullable": false
+            }
+        }, {
+            "name": "d",
+            "type": {
+                "type": "basic",
+                "base": "double",
+                "isNullable": false
+            }
+        }]
+    },
+    "rows": [
+        [1, 2, 3, 4]
+    ]
+}

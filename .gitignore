@@ -12,3 +12,4 @@ clipper/model.ckpt.index
 clipper/model.ckpt.meta
 seldon/.ipynb_checkpoints/
 clipper/.ipynb_checkpoints/
+*/.ipynb_checkpoints/
